@@ -1,0 +1,125 @@
+ver configuraciones de usuario
+git config --global -email
+
+inicializar un repositorio partiendo de una carpeta local
+cd direccion-carpeta-del-repositorio
+git init
+
+ver status de archivos
+git status
+
+agregar todos los archivos primera subida 
+git add .
+
+agregar un archivo en especifico
+git status <- mostrara todos los archivos que no han sido versionados
+git add texto.txt <- subira el archivo especificado
+
+agregar un tipo de archivo en especifico
+git add *.png
+
+agregar una carpeta en especifico
+git add css/
+
+quitar un tipo de archivo en especifico del stage (cuando este en verde)
+git reset *.xml
+git reset nombreDelArchivo
+
+primer commit de todo el proyecto
+git commit -m "Primer Commit"
+
+recuperar el ultimo commit completo
+git checkout -- .
+git checkout -- nombre del archivo
+
+ver el log de los commit
+git log
+
+log en una sola linea
+git log --oneline
+
+para ver el status de los archivos resumidos
+git status -s
+
+alias creados en el curso
+git config --global alias.lg "log --oneline --decorate --all --graph"
+lg <- git log --oneline --decorate --all --graph
+s  <- git status -sb
+
+para ver cambios en archivos que no han pasado al stage
+git diff
+
+para ver cambios en archivos que si han pasado al stage
+git diff --staged
+
+para quitar archivos del staged
+git reset HEAD README.md
+
+para revertir cambios a un archivo en particular
+git checkout -- README.md
+
+para modificar el ultimo commit
+git commit --amend -m "actualizamos el readme"
+
+ir hacia un punto determinado del versionado no borra nada solamente
+lleva a ese punto del versionado pero no te borra los archivos que has generado 
+en versiones posteriores a este (se puede usar mixed tambien es por defecto de git).
+realizar un git log --oneline --decorate --all --graph
+git reset --soft 329dea6 
+
+ir hacia un punto determinado del versionado pero borrar todos los puntos posteriores 
+este
+git reset --hard 5932954
+
+ver todos los cambios del versionado que se han movido
+git reflog
+tomamos el has hacia donde nos queremos dirigir
+git reset --hard 5932954
+
+eliminar un archivo del versionado
+git rm destruirMundo.txt
+luego generar commit
+
+para actualizar archivos borrados manualmente
+git add -u
+luego generar commit
+
+para ignorar archivos que no se deben versionar
+crear un archivo en la raiz del repositorio el cual tenga extension .gitignore
+por linea colocar los nombre o los tipos o carpetas que querramos ignorar
+luego versionar ese archivo
+
+
+para crear un nuevo branch 
+git branch rama-villanos
+
+para verificar los branch
+git branch
+
+para colocarse en el branch
+git checkout rama-villanos
+
+para comparar 2 ramas 
+git diff rama1 master
+
+para realizar un merge entre ramas
+nos ubicamos en la rama a integrar
+git merge rama_villanos
+
+para borrar rama
+git branch -d rama-villanos
+
+creando tag sobre commit
+git tag -a v1.0.0 -m "Version 1.0.0"
+agregando tag a un commit pasado tomar hash 345d7de
+git tag -a v0.1.0 345d7de -m "Version alfa"
+
+consultando tag creados
+git tag
+
+creando stash del proyecto
+git stash      <- forma basica de crear solo uno 
+git stash save "descripcion" <- forma detallada de crear uno
+git stash list <- verificar todos los stash
+git stash pop  <- extrae los cambios que guardamos y no los trae a la version
+git stash drop  <- elimina el stash usarlo cuando no nos sive o sucedio un conflicto
