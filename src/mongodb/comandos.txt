@@ -1,0 +1,28 @@
+crear la base de datos
+use virgohistorias
+
+crear un documento (tabla)
+db.categorias.insert({"nombre":"Nacional","activa":1})
+
+para buscar todos los registros
+db.categorias.find()
+
+para buscar todos los registros ordenados de la a z por nombre
+db.categorias.find().sort({nombre: 1}).pretty()
+
+para buscar un registro con un nombre especifico
+db.categorias.find({"nombre":"Nacional"})
+
+para buscar un registro con 2 campos en especifico
+db.categorias.find({"activa":1},"nombre":"Prueba11")
+
+modificando un registro
+db.categorias.update({"nombre":"Prueba11"},{"nombre":"PruebaModi","activa":0})
+
+accediento a un registro relacionado
+var cursor = db.historias.find({"_id": ObjectId("id del objeto")})
+var historia = cursor.hasNext() ? cursor.next() : null
+if(historia){
+...var idCategoria = historia.fkCategoria
+...}
+db.categorias.find({"_id": ObjectId(idCategoria)}).pretty()
