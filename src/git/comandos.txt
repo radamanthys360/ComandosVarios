@@ -123,3 +123,9 @@ git stash save "descripcion" <- forma detallada de crear uno
 git stash list <- verificar todos los stash
 git stash pop  <- extrae los cambios que guardamos y no los trae a la version
 git stash drop  <- elimina el stash usarlo cuando no nos sive o sucedio un conflicto
+
+
+cuando ya esta remoto para actualizar desde consola
+git add .
+git commit -m "commit"
+git push origin
