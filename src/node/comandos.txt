@@ -1,0 +1,35 @@
+crear proyecto (estar dentro de la carpeta)
+npm init
+
+instalar expreess para hacer rest
+npm install express --save
+
+instalar para contraseñas encriptar
+npm install bcrypt-nodejs --save
+
+para parsear las peticiones a json
+npm install body-parser --save
+
+poder subir ficheros con nodejs
+npm install connect-multiparty --save
+
+jwt para token
+npm install jwt-simple --save
+
+para fechas
+npm install moment --save
+
+orm para mongodb
+npm install mongoose --save
+
+para paginar la data con mongodb
+npm install mongoose-pagination --save
+
+instalando nodemon solo para desarrollo
+npm install nodemon --save--dev 
+
+desintalar una dependencia
+npm uninstall mongoose --save
+
+star proyecto
+npm start
