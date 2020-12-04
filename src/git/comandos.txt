@@ -129,3 +129,7 @@ cuando ya esta remoto para actualizar desde consola
 git add .
 git commit -m "commit"
 git push origin
+
+-- creando tag por consola y enviandolo al remoto
+git tag -a v1.0.0 -m "Version 1.0.0"
+git push origin v1.0.0

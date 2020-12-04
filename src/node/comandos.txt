@@ -1,4 +1,4 @@
-crear proyecto (estar dentro de la carpeta)
+﻿crear proyecto (estar dentro de la carpeta)
 npm init
 
 instalar expreess para hacer rest
@@ -33,3 +33,15 @@ npm uninstall mongoose --save
 
 star proyecto
 npm start
+
+instalando para leer propiedades.
+npm i properties-reader
+
+instalando para validar data
+npm install validator
+
+-- usando paginacion nueva
+npm uninstall mongoose-pagination --save
+
+-- nueva paginacion
+npm install mongoose-paginate-v2
