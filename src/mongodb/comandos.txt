@@ -26,3 +26,17 @@ if(historia){
 ...var idCategoria = historia.fkCategoria
 ...}
 db.categorias.find({"_id": ObjectId(idCategoria)}).pretty()
+
+
+// 
+creando usuarios
+use admin
+
+db.createUser({
+  user: "admin", 
+  pwd: "secure", 
+  roles: [ { role: "root", db: "admin" } ]
+})
+
+conexion remota
+mongodb://rada:123456789@192.168.1.126:27017/virgohistorias

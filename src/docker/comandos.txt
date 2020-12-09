@@ -1,0 +1,71 @@
+************************** creacion de imagen para php
+nano Dockerfile
+
+from centos:7
+
+RUN yum -y install \
+           httpd \
+		   php \
+		   php-cli \
+		   php-common \
+		   mod_ssl \
+		   openssl
+
+RUN echo "<?php phpinfo(); ?>" > /var/www/html/hola.php
+
+COPY ssl.conf /etc/httpd/conf.d/default.conf
+
+COPY rada.crt /rada.crt
+
+COPY rada.key /rada.key
+
+EXPOSE 443
+
+CMD apachectl -DFOREGROUND
+************************** creacion de imagen para php
+
+borrar imagen
+docker rm -fv 
+
+ejecutar 
+   docker build --tag apache:php .
+    
+crear un contenedor
+	docker run -d --name apache-php -p 443:443 apache:php
+
+para generar certificado localhost darle yes
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout rada.key -out rada.crt	
+
+genera crt y key
+
+crear un archivo llamado ssl.conf
+<VirtualHost *:443>
+ ServerName localhost
+ DocumentRoot /var/www/html
+ SSLEngine on
+ SSLCertificateFile /rada.crt
+ SSLCertificateKeyFile /rada.key
+</VirtualHost>
+
+mostrar imagenes que no estan referenciadas
+docker images -f dangling=true | xargs docker rmi
+
+docker rmi y el id
+
+#check container
+docker ps -a
+
+#remove container
+docker rm containerID
+
+**** instalando mongodb****
+docker pull mongo
+
+run container
+docker run -d --name mongodb -p 27017:27017 mongo
+
+para crear el usuario
+docker exec -it mongodb bash
+
+para entrar
+mongo
